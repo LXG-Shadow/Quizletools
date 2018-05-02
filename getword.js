@@ -28,5 +28,5 @@ function parsedict(dict){
 };
 
 function printdict(dict,dictname){
-    document.write("var " + dictname + "=" + parsedict(dict));
+    document.write("var " + dictname + "=" + parsedict(dict) + ";");
 };
