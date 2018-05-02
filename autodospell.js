@@ -30,7 +30,7 @@ function autospelling(){
         	    	event = document.createEvent("KeyboardEvent");
         	    	//初始化事件对象
         	    	event.initKeyboardEvent("keydown", true, true, document.defaultView, "a",0, "Shift", 0);
-        		    currentanswer = worddicts[spantags[i].innerHTML]
+        		    currentanswer = defdict[spantags[i].innerHTML]
         		    console.log("enter the word to the textarea.",currentanswer);
                     textarea.value = currentanswer;
                     textarea.dispatchEvent(event);
