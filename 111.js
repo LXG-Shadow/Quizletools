@@ -105,7 +105,6 @@ function autodotest(){
     var titles = document.getElementsByTagName("h4");
     var index = 0;
     for (var i in titles){
-        console.log(isNaN(parseInt(titles[i].innerText)));
         if (isNaN(parseInt(titles[i].innerText)))
             break;
         testsectionum[index] = parseInt(titles[i].innerText);
@@ -162,6 +161,25 @@ function autodotest(){
     };
 };
 
+
+function autodomatch(){
+    var divtags=document.getElementsByTagName("div");
+    var questext = new Array();
+    for(var i in divtags){  
+        if(divtags[i].nodeType==1){  
+            if(divtags[i].getAttribute("style") == "display: block;"){
+                questext.push(divtags[i])
+            }; 
+        };
+    };
+
+    for (var i in questext){
+        var repl = defdict[questext[i].innerText];
+        if (typeof(repl) != "undefined"){
+            questext[i].innerText = repl;
+        };
+    };
+};
 
 
 
