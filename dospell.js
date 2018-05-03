@@ -4,7 +4,7 @@ function dospell_autofill(){
     var textareatags = document.getElementsByTagName("textarea");
     if (textareatags.length != 1){
         console.log("didn't find the proper textarea");
-        var a = setTimeout(dospell_autofill,2000);
+        var a = setTimeout(dospell_autofill,500);
         return;
     }
     else{
@@ -14,7 +14,7 @@ function dospell_autofill(){
         }
         else{
             console.log("didn't find the proper textarea");
-            var a = setTimeout(dospell_autofill,2000);
+            var a = setTimeout(dospell_autofill,500);
             return;
         };
     }
@@ -23,7 +23,7 @@ function dospell_autofill(){
             if(spantags[i].getAttribute("class") == "qDef lang-en TermText"){
                 if (currentanswer == textarea.value){
                     console.log("wait for next word.");
-                    var a =setTimeout(dospell_autofill,1000);
+                    var a =setTimeout(dospell_autofill,500);
                     return;
                 }
                 else{
@@ -34,7 +34,7 @@ function dospell_autofill(){
                     console.log("enter the word to the textarea.",currentanswer);
                     textarea.value = currentanswer;
                     textarea.dispatchEvent(event);
-                    var a =setTimeout(dospell_autofill,1000);
+                    var a =setTimeout(dospell_autofill,500);
                     return;
                 };
             }; 

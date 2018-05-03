@@ -17,7 +17,7 @@ function domatch_block_repldef(){
     };
 };
 
-function domatch_block_colored(){
+function domatch_block_color(){
     var divtags=document.getElementsByTagName("div");
     var questext = new Array();
     for(var i in divtags){  
