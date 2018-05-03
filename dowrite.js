@@ -1,10 +1,10 @@
 var currentanswer = "init";
-function autodowrite(){
+function dowrite_autofill(){
     var spantags=document.getElementsByTagName("span");
     var textareatags = document.getElementsByTagName("textarea");
     if (textareatags.length != 1){
         console.log("didn't find the proper textarea");
-        var a = setTimeout(autodowrite,2000);
+        var a = setTimeout(dowrite_autofill,2000);
         return;
     }
     else{
@@ -14,7 +14,7 @@ function autodowrite(){
         }
         else{
             console.log("didn't find the proper textarea");
-            var a = setTimeout(autodowrite,2000);
+            var a = setTimeout(dowrite_autofill,2000);
             return;
         };
     }
@@ -23,7 +23,7 @@ function autodowrite(){
             if(spantags[i].getAttribute("class") == "qDef lang-en TermText"){
                 if (currentanswer == textarea.value){
                     console.log("wait for next word.");
-                    var a =setTimeout(autodowrite,1000);
+                    var a =setTimeout(dowrite_autofill,1000);
                     return;
                 }
                 else{
@@ -34,7 +34,7 @@ function autodowrite(){
                     console.log("enter the word to the textarea.",currentanswer);
                     textarea.value = currentanswer;
                     textarea.dispatchEvent(event);
-                    var a =setTimeout(autodowrite,1000);
+                    var a =setTimeout(dowrite_autofill,1000);
                     return;
                 };
             }; 

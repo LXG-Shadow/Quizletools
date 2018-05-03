@@ -1,4 +1,4 @@
-function autodotest(){
+function dotest_getanswer(){
     var testsectionum=new Array()
     var titles = document.getElementsByTagName("h4");
     var index = 0;
