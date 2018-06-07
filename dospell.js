@@ -27,13 +27,19 @@ function dospell_autofill(){
                     return;
                 }
                 else{
-                    event = document.createEvent("KeyboardEvent");
+                    //event = document.createEvent("KeyboardEvent");
                     //初始化事件对象
-                    event.initKeyboardEvent("keydown", true, true, document.defaultView, "a",0, "Shift", 0);
+                    //event.initKeyboardEvent("keydown", true, true, document.defaultView, "a",0, "Shift", 0);
                     currentanswer = defdict[spantags[i].innerHTML]
+                    if (typeof(currentanswer) == "undefined"){
+                        for (j in defdict){
+                            if (j.length == spantags[i].innerHTML.length)
+                                currentanswer = defdict[j];
+                        };
+                    };
                     console.log("enter the word to the textarea.",currentanswer);
                     textarea.value = currentanswer;
-                    textarea.dispatchEvent(event);
+                    //textarea.dispatchEvent(event);
                     var a =setTimeout(dospell_autofill,500);
                     return;
                 };

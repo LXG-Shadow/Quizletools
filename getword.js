@@ -21,7 +21,8 @@ function parsedict(dict){
     for (var key in dict){
         if (key == "each")
             break
-        str = str + "\""+key+"\""+":"+"\""+dict[key]+"\""+",";
+        str = str + "\""+key.split("\"").join("\\\"")+"\""+":"+"\""+dict[key].split("\"").join("\\\"")+"\""+",";
+        console.log(str);
     };
     str = "{"+ str.substr(0,str.length-1) + "}";
     return str
