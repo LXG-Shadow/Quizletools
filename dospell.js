@@ -1,5 +1,7 @@
 var currentanswer = "init";
-function dospell_autofill(){
+var cndefclass = "qDef lang-zh-CN TermText";
+var endefclass = "qDef lang-en TermText";
+function dospell_autofill(defclass){
     var spantags=document.getElementsByTagName("span");
     var textareatags = document.getElementsByTagName("textarea");
     if (textareatags.length != 1){
@@ -20,7 +22,7 @@ function dospell_autofill(){
     }
     for(var i in spantags){  
         if(spantags[i].nodeType==1){  
-            if(spantags[i].getAttribute("class") == "qDef lang-en TermText"){
+            if(spantags[i].getAttribute("class") == defclass){
                 if (currentanswer == textarea.value){
                     console.log("wait for next word.");
                     var a =setTimeout(dospell_autofill,500);

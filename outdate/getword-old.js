@@ -1,11 +1,19 @@
 var defdict = new Array();
 var wordict = new Array();
-var terms = window.Quizlet.cardsModeData["terms"];
-
-for(var i=0;i<terms.length-1;i++){
-	console.log(terms[i]);
-	defdict[terms[i]["definition"]] = terms[i]["word"];
-    wordict[terms[i]["word"]] = terms[i]["definition"];
+var tags=document.getElementsByTagName("span");
+var index = 0;
+for(var i in tags){  
+    if(tags[i].nodeType==1){  
+        if(tags[i].getAttribute("class") == "qDef lang-en TermText"){
+            var def=tags[i].innerHTML;
+        }; 
+        if(tags[i].getAttribute("class") == "qWord lang-en TermText"){
+            var word=tags[i].innerHTML;
+            defdict[def] = word;
+            wordict[word] = def;
+            index++;
+        };   
+    }; 
 };
 
 function parsedict(dict){
